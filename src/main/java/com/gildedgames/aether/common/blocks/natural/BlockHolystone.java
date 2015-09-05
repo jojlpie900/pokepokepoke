@@ -1,9 +1,12 @@
 package com.gildedgames.aether.common.blocks.natural;
 
+import java.util.List;
+
 import com.gildedgames.aether.common.blocks.util.variants.IAetherBlockWithSubtypes;
 import com.gildedgames.aether.common.blocks.util.variants.blockstates.BlockVariant;
 import com.gildedgames.aether.common.blocks.util.variants.blockstates.PropertyVariant;
 import com.google.common.base.Predicate;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockState;
@@ -17,12 +20,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.util.List;
-
 public class BlockHolystone extends Block implements IAetherBlockWithSubtypes
 {
-	public static final BlockVariant
-			NORMAL_HOLYSTONE = new BlockVariant(0, "normal"),
+	public static final BlockVariant NORMAL_HOLYSTONE = new BlockVariant(0, "normal"),
 			MOSSY_HOLYSTONE = new BlockVariant(1, "mossy"),
 			BLOOD_MOSS_HOLYSTONE = new BlockVariant(2, "blood_moss");
 
@@ -105,5 +105,10 @@ public class BlockHolystone extends Block implements IAetherBlockWithSubtypes
 	public String getSubtypeUnlocalizedName(ItemStack stack)
 	{
 		return PROPERTY_VARIANT.fromMeta(stack.getMetadata()).getName();
+	}
+
+	public IBlockState getBloodMoss()
+	{
+		return this.getDefaultState().withProperty(PROPERTY_VARIANT, BLOOD_MOSS_HOLYSTONE);
 	}
 }

@@ -3,6 +3,10 @@ package com.gildedgames.aether.common.world;
 import java.util.List;
 import java.util.Random;
 
+import com.gildedgames.aether.common.blocks.BlocksAether;
+import com.gildedgames.aether.common.blocks.natural.BlockAetherGrass;
+import com.gildedgames.aether.common.world.biome.BiomeGenAetherBase;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
@@ -19,10 +23,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
-
-import com.gildedgames.aether.common.blocks.BlocksAether;
-import com.gildedgames.aether.common.blocks.natural.BlockAetherGrass;
-import com.gildedgames.aether.common.world.biome.BiomeGenAetherBase;
 
 public class ChunkProviderAether implements IChunkProvider
 {
@@ -277,7 +277,7 @@ public class ChunkProviderAether implements IChunkProvider
 
 					finalHeight -= 20D;
 
-					if (y1 > height - 32)//If y1 > 1
+					if (y1 > height - 32) //If y1 > 1
 					{
 						double dy = (y1 - (height - 32)) / 31D;
 						finalHeight = finalHeight * (1.0D - dy) + -30D * dy;//

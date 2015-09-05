@@ -38,7 +38,7 @@ public class BlocksAether
 
 	public static Block aether_grass;
 
-	public static Block holystone;
+	public static BlockHolystone holystone;
 
 	public static Block aercloud;
 
@@ -83,7 +83,7 @@ public class BlocksAether
 
 	public static Block aether_sapling;
 
-	public static Block carved_stone;
+	public static BlockDungeon carved_stone;
 
 	public static Block sentry_stone;
 
@@ -192,23 +192,23 @@ public class BlocksAether
 		holystone_brick.setHarvestLevel("pickaxe", 0);
 	}
 
-	private static Block registerBlock(String name, Block block, CreativeTabs tab)
+	private static <T extends Block> T registerBlock(String name, T block, CreativeTabs tab)
 	{
-		return registerBlock(name, block.setCreativeTab(tab));
+		return registerBlock(name, (T) block.setCreativeTab(tab));
 	}
 
-	private static Block registerBlock(String name, Block block)
+	private static <T extends Block> T registerBlock(String name, T block)
 	{
 		return registerBlockWithItem(name, block, ItemBlock.class);
 	}
 
-	private static Block registerBlockWithItem(String name, Block block, Class<? extends ItemBlock> item, CreativeTabs tab)
+	private static <T extends Block> T registerBlockWithItem(String name, T block, Class<? extends ItemBlock> item, CreativeTabs tab)
 	{
-		return registerBlockWithItem(name, block.setCreativeTab(tab), item);
+		return registerBlockWithItem(name, (T) block.setCreativeTab(tab), item);
 	}
 
-	private static Block registerBlockWithItem(String name, Block block, Class<? extends ItemBlock> item)
+	private static <T extends Block> T registerBlockWithItem(String name, T block, Class<? extends ItemBlock> item)
 	{
-		return GameRegistry.registerBlock(block.setUnlocalizedName(name), item, name);
+		return (T) GameRegistry.registerBlock(block.setUnlocalizedName(name), item, name);
 	}
 }

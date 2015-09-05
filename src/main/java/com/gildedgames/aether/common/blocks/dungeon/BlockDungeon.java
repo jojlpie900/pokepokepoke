@@ -1,6 +1,7 @@
 package com.gildedgames.aether.common.blocks.dungeon;
 
 import com.gildedgames.aether.common.blocks.util.variants.IAetherBlockWithSubtypes;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
@@ -12,8 +13,7 @@ import net.minecraft.world.World;
 
 public class BlockDungeon extends Block implements IAetherBlockWithSubtypes
 {
-	public static final int
-			NORMAL = 0,
+	public static final int NORMAL = 0,
 			DIVINE = 1;
 
 	public static final PropertyBool PROPERTY_IS_DIVINE = PropertyBool.create("is_divine");
@@ -61,5 +61,10 @@ public class BlockDungeon extends Block implements IAetherBlockWithSubtypes
 		default:
 			return "missingno";
 		}
+	}
+
+	public IBlockState getDivineState()
+	{
+		return this.getDefaultState().withProperty(PROPERTY_IS_DIVINE, true);
 	}
 }
